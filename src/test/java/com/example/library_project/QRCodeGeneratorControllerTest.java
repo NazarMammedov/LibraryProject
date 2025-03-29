@@ -39,7 +39,7 @@ public class QRCodeGeneratorControllerTest {
     }
 
     @Test
-    void generateQRCodeGetRequestUnnsuccessfulAttemptToGenerateQRCode_test() throws Exception {
+    void generateQRCodeGetRequestUnsuccessfulAttemptToGenerateQRCode_test() throws Exception {
         mockMvc.perform(get("/generate-QR-code?url=http://testdklwaljdkladjfllkasjd:8080/test"))
                 .andExpect(status().isOk());
         verify(qrCodeService, times(0)).generateQRCode(any(), any(), any());
