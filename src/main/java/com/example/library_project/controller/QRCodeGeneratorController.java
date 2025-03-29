@@ -2,18 +2,11 @@ package com.example.library_project.controller;
 
 
 import com.example.library_project.service.QRCodeService;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStreamReader;
 
 @Controller
 @RequiredArgsConstructor

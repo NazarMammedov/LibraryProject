@@ -1,18 +1,14 @@
 package com.example.library_project.controller;
 
-import com.example.library_project.config.SecurityConfig;
 import com.example.library_project.model.Book;
 import com.example.library_project.model.User;
 import com.example.library_project.service.BookService;
 import com.example.library_project.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
