@@ -31,7 +31,8 @@ function scanQRCode() {
             const code = jsQR(imageData.data, canvas.width, canvas.height, { inversionAttempts: "dontInvert" });
 
             if (code) {
-                if (code.data.startsWith(allowedURL)){
+                console.log(code.data)
+                if (!code.data.startsWith(allowedURL)){
                     alert("Det har oppstått en feil med QR-koden")
                 } else{
                     window.location.href = code.data;
