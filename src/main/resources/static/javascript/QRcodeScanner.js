@@ -1,6 +1,6 @@
 const video = document.querySelector("#scanner");
 const result = document.querySelector("#result");
-
+const allowedURL = "http:/localhost:8080";
 navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
     .then(function (stream) {
         video.srcObject = stream;
@@ -31,7 +31,11 @@ function scanQRCode() {
             const code = jsQR(imageData.data, canvas.width, canvas.height, { inversionAttempts: "dontInvert" });
 
             if (code) {
-                window.location.href = code.data;
+                if (code.data.startsWith(allowedURL)){
+                    alert("Det har oppstått en feil med QR-koden")
+                } else{
+                    window.location.href = code.data;
+                }
             }
         }
         requestAnimationFrame(processFrame);
