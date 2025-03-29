@@ -31,10 +31,10 @@ public class AuthenticationController {
     public String registration(@RequestParam("name") String name, @RequestParam("email") String email, @RequestParam("password") String password, Model model){
         User user = new User();
        if (name.isBlank() || email.isBlank() || password.isBlank()){
-           model.addAttribute("error", "Du har tomme felter");
+           model.addAttribute("error", "Du har tomme felter!");
            return "registration";
        } else if (userService.findByEmail(email) != null) {
-           model.addAttribute("error", "E-posten "+email+" blir brukt av en annen bruker");
+           model.addAttribute("error", "E-posten "+email+" blir brukt av en annen bruker!");
            return "registration";
        }else{
            user.setName(name);
