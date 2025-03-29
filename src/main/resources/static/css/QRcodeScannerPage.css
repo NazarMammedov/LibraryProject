@@ -1,0 +1,16 @@
+@media screen and (max-width: 1000px) {
+    #scanner {
+        width: 100%;
+        height: 1000px;
+
+    }
+    .info{
+        font-size: 23px;
+    }
+}
+
+.info{
+    font-size: 23px;
+    font-weight: bold;
+
+}

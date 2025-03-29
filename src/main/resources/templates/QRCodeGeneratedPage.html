@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generert QR-kode</title>
+</head>
+<body>
+<p th:if="${error}"></p>
+<div th:if="${generatedQRCodeImage != null}">
+    <img th:src="${generatedQRCodeImage}" alt="QR-kode" />
+</div>
+</body>
+</html>
