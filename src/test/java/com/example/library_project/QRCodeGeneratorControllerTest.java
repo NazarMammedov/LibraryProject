@@ -45,3 +45,4 @@ public class QRCodeGeneratorControllerTest {
         verify(qrCodeService, times(0)).generateQRCode(any(), any(), any());
     }
 }
+//test
