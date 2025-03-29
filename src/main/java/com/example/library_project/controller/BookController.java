@@ -36,7 +36,7 @@ public class BookController {
         String currentUserEmail = SecurityContextHolder.getContext().getAuthentication().getName();
         User currentUser = userService.findByEmail(currentUserEmail);
         Book currentBook = bookService.findBookById(book_id);
-        if (currentBook.getUser() != null && !Objects.equals(currentBook.getUser().getEmail(), currentUser.getEmail())) {
+        if (currentBook.getUser() != null) {
             redirectAttributes.addFlashAttribute("error", "Denne boken er allerede utlånt av " + currentBook.getUser().getName());
         }
         bookService.loanBook(book_id, currentUser.getEmail());
