@@ -1,4 +1,7 @@
-
+label{
+   font-size: 23px;
+   font-weight: bold;
+}
 .form-control {
    width: 100%;
 }
