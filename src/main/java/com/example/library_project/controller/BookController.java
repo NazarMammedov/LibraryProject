@@ -48,14 +48,13 @@ public class BookController {
         String currentUserEmail = SecurityContextHolder.getContext().getAuthentication().getName();
         User currentUser = userService.findByEmail(currentUserEmail);
         Book currentBook = bookService.findBookById(book_id);
-        if (bookService.returnBook(currentBook.getId(), currentUser.getId()) == null){
+        if (bookService.returnBook(currentBook.getId(), currentUser.getId()) == null) {
             redirectAttributes.addFlashAttribute("error", "Du har ikke lånt den boken");
-        }
-    else {
+        } else {
             bookService.returnBook(book_id, currentUser.getId());
             redirectAttributes.addFlashAttribute("success", "Du har levert denne boken!");
         }
-        return "redirect:/book/info/"+currentBook.getId();
+        return "redirect:/book/info/" + currentBook.getId();
     }
 
 
