@@ -16,7 +16,7 @@ public class QRCodeScannerPageControllerTest {
     MockMvc mockMvc;
 
     @Test
-    void QRCodeScannerPage_test() throws Exception{
+    void QRCodeScannerPageGetRequestStatus_test() throws Exception{
         mockMvc.perform(get("/scan-QR-code")).andExpect(status().isOk());
     }
 }

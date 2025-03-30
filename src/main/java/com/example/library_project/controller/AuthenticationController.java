@@ -28,7 +28,7 @@ public class AuthenticationController {
     }
 
    @PostMapping("/register-user")
-    public String registration(@RequestParam("name") String name, @RequestParam("email") String email, @RequestParam("password") String password, Model model){
+    public String registerUser(@RequestParam("name") String name, @RequestParam("email") String email, @RequestParam("password") String password, Model model){
         User user = new User();
        if (name.isBlank() || email.isBlank() || password.isBlank()){
            model.addAttribute("error", "Du har tomme felter!");

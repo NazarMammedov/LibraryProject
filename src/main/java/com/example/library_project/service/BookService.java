@@ -17,7 +17,7 @@ public class BookService {
     private final UserRepository userRepository;
 
 
-    public List<Book> getEveryBook() {
+    public List<Book> getAllBooks() {
         return bookRepository.findAll();
     }
 

@@ -18,10 +18,10 @@ public class MainPageController {
     private final UserService userService;
     @GetMapping("/")
     public String mainPage(Model model) {
-        model.addAttribute("books", bookService.getEveryBook());
+        model.addAttribute("books", bookService.getAllBooks());
         String currentUserEmail = SecurityContextHolder.getContext().getAuthentication().getName();
         User currentUser = userService.findByEmail(currentUserEmail);
-        List<Book> books = bookService.getEveryBook();
+        List<Book> books = bookService.getAllBooks();
         model.addAttribute("currentUser", currentUser);
         model.addAttribute("books", books);
         return "mainPage";

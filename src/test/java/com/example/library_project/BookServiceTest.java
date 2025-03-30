@@ -34,19 +34,19 @@ public class BookServiceTest {
     }
 
     @Test
-    void getEveryBookFindAllBooks_test(){
+    void getAllBooksFindAllBooks_test(){
         Book book = new Book();
         List<Book> books = new ArrayList<>();
         books.add(book);
         books.add(book);
         books.add(book);
         when(bookRepository.findAll()).thenReturn(books);
-        assertEquals(bookService.getEveryBook().size(), 3);
+        assertEquals(bookService.getAllBooks().size(), 3);
     }
 
     @Test
-    void getEveryBookCallsOnce_test(){
-        bookService.getEveryBook();
+    void getAllBooksCallsOnce_test(){
+        bookService.getAllBooks();
         verify(bookRepository, times(1)).findAll();
     }
 
