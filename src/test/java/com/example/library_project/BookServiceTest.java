@@ -100,7 +100,7 @@ public class BookServiceTest {
     }
 
     @Test
-    void findBooksByUserGetBooksByUser_test(){
+    void findBooksByUser_test(){
         List<Book> userBooks = new ArrayList<>();
         User user = new User();
         userBooks.add(new Book());
