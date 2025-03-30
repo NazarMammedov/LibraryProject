@@ -77,7 +77,7 @@ public class BookControllerTest {
 
     @Test
     @WithAnonymousUser
-    void returnBookGetRequestWithAnonymousUserStatus_test() throws Exception{
+    void returnBookPostRequestWithAnonymousUserStatus_test() throws Exception{
         mockMvc.perform(get("/return-book/{book_id}","1")).andExpectAll(status().is3xxRedirection(), redirectedUrl("http://localhost/login"));
     }
     @Test
