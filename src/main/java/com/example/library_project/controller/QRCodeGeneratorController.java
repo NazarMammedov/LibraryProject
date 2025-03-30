@@ -17,7 +17,7 @@ public class QRCodeGeneratorController {
     public String generateQRCode(@RequestParam("url") String url, Model model) throws Exception {
         String allowed_url = "http://localhost:8080";
         if (!url.startsWith(allowed_url)){
-            model.addAttribute("error","Det har oppstått en feilmed generering av QR-koden");
+            model.addAttribute("error","Det har oppstått en feil med generering av QR-koden");
             return "QRCodeGeneratedPage";
         }
         model.addAttribute("generatedQRCodeImage", "data:image/png;base64,"+qrCodeService.generateQRCode(url, 250, 250));
