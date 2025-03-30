@@ -83,7 +83,15 @@ public class AuthenticationControllerTest {
         User user = new User("test", "test", "test");
         when(userService.createUser(any())).thenReturn(user);
         when(userService.findByEmail(any())).thenReturn(user);
-        mockMvc.perform(post("/register-user").param("name", "test").param("email", "test").param("password", "test")).andExpectAll(status().isOk(), model().attribute("error", "E-posten "+user.getEmail()+" blir brukt av en annen bruker"));
+        mockMvc.perform(post("/register-user").param("name", "test").param("email", "test").param("password", "test")).andExpectAll(status().isOk(), model().attribute("error", "E-posten "+user.getEmail()+" blir brukt av en annen bruker!"));
+    }
+
+    @Test
+    void registerUserPostRequestEmptyFieldsStatus_test() throws Exception {
+        User user = new User("test", "test", "test");
+        when(userService.createUser(any())).thenReturn(user);
+        when(userService.findByEmail(any())).thenReturn(user);
+        mockMvc.perform(post("/register-user").param("name", "test").param("email", "").param("password", "test")).andExpectAll(status().isOk(), model().attribute("error", "Du har tomme felter?"));
     }
 
     @Test

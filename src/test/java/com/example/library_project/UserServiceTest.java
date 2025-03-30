@@ -62,7 +62,8 @@ public class UserServiceTest {
 
     @Test
     void findByEmailFindsUserByEmail_test() {
-        when(userRepository.findByEmail(any())).thenReturn(any());
+        User user = new User("test", "test", "test");
+        when(userRepository.findByEmail(any())).thenReturn(user);
         assertNotNull(userService.findByEmail("test"));
     }
 
