@@ -61,7 +61,7 @@ public class UserServiceTest {
     }
 
     @Test
-    void findByEmailFindsByEmail_test() {
+    void findByEmailFindsUserByEmail_test() {
         when(userRepository.findByEmail(any())).thenReturn(any());
         assertNotNull(userService.findByEmail("test"));
     }
