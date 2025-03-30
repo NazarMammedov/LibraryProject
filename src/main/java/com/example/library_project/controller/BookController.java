@@ -44,7 +44,6 @@ public class BookController {
     }
 
     @RequestMapping(value = "/return-book/{book_id}", method = {RequestMethod.GET, RequestMethod.POST})
-
     public String returnBook(@PathVariable("book_id") Long book_id, RedirectAttributes redirectAttributes) {
         String currentUserEmail = SecurityContextHolder.getContext().getAuthentication().getName();
         User currentUser = userService.findByEmail(currentUserEmail);
