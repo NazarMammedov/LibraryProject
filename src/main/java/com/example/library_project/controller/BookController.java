@@ -36,7 +36,7 @@ public class BookController {
         String currentUserEmail = SecurityContextHolder.getContext().getAuthentication().getName();
         User currentUser = userService.findByEmail(currentUserEmail);
         Book currentBook = bookService.findBookById(book_id);
-        if (currentBook.getUser() != null && !Objects.equals(currentBook.getUser().getEmail(), currentUser.getEmail())) {
+        if (bookService.loanBook(currentBook.getId(), currentUserEmail) == null) {
             redirectAttributes.addFlashAttribute("error", "Denne boken er allerede utlånt av " + currentBook.getUser().getName());
         }
         bookService.loanBook(book_id, currentUser.getEmail());
@@ -48,9 +48,10 @@ public class BookController {
         String currentUserEmail = SecurityContextHolder.getContext().getAuthentication().getName();
         User currentUser = userService.findByEmail(currentUserEmail);
         Book currentBook = bookService.findBookById(book_id);
-        if (currentBook.getUser() != null && !Objects.equals(currentBook.getUser().getId(), currentUser.getId())) {
+        if (bookService.returnBook(currentBook.getId(), currentUser.getId()) == null){
             redirectAttributes.addFlashAttribute("error", "Du har ikke lånt den boken");
-        } else {
+        }
+    else {
             bookService.returnBook(book_id, currentUser.getId());
             redirectAttributes.addFlashAttribute("success", "Du har levert denne boken!");
         }

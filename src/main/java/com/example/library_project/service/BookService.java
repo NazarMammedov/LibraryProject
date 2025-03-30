@@ -40,7 +40,7 @@ public class BookService {
 
     public Book returnBook(Long book_id, Long user_id){
         Book book = bookRepository.findById(book_id).orElseThrow();
-        if (!Objects.equals(book.getUser().getId(), user_id)){
+        if (book.getUser() == null || !Objects.equals(book.getUser().getId(), user_id)){
             return null;
         }else {
             book.setStatus(true);
